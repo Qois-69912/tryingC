@@ -67,7 +67,7 @@ int binaryToDigit(char binaryInputChar[]) {
 
 
 int main(int argc, char *argv[]) {
-  char *optionsList[] = {"DigitToBinary", "BinaryToDigit"};
+  char *optionsList[] = {"--DigitToBinary", "--BinaryToDigit"};
   int optListArrLen = sizeof(optionsList) / sizeof(optionsList[0]);
 
   if (argc < 2) {
@@ -78,7 +78,7 @@ int main(int argc, char *argv[]) {
         "%s : For Converting Binary to Digits\n"
         "\nArgument = Digit or Binary that want to be convert\n"
         "\nExample : \n"
-        "./ThisProgramName --%s 123\n",
+        "./<ThisProgramName> %s 123\n",
         optionsList[0], optionsList[1], optionsList[0]
     );
     return 0;
@@ -105,6 +105,11 @@ int main(int argc, char *argv[]) {
   int inputInt = atoi(argv[2]);
   if (inputInt == 0 && argLen > 1) {
     printf("Expected a number as argument \n");
+    return 0;
+  }
+
+  if (inputInt == 0) {
+    printf("%d\n", inputInt);
     return 0;
   }
 
